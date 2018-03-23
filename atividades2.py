@@ -51,7 +51,7 @@ if numero %2 == 0:
     print("O número é par")
 else:
     print("O número é impar")
-print(" ")'''
+print(" ")
 #Faça um algoritmo que leia um número e some 5 caso seja par ou some 8 caso seja ímpar. Por fim, imprima o resultado desta soma.
 print("----------------------Questão 06 --------------------")
 numero = int(input("Insira um número: "))
@@ -61,3 +61,22 @@ if numero %2 == 0:
 else:
     numero = numero + 8
     print(numero)
+print(" ")
+#Crie um programa que peça uma nota de trabalho e uma de prova (as duas de 0 a 100). Se a média aritmética das notas for maior ou igual a 60, escreva “Aprovado”, se não, “Reprovado”.
+print("----------------------Questão 07 --------------------")
+trab = int(input("Insira a nota do trabalho: "))
+prova = int(input("Insira a nota da prova: "))
+if trab+prova>=60:
+    print("Aluno aprovado")
+else:
+    print("Aluno reprovado")
+    print(" ")'''
+#Construa um algoritmo, que receba três valores, A, B e C. Em seguida, apresente na tela os números em ordem crescente.
+a = int(input("Insira um valor de A: "))
+b = int(input("Insira o valor de B: "))
+c = int(input("Insira o valor de C: "))
+
+if a>b>c:
+    print(a, b, c)
+elif b>a>c:
+    print
