@@ -70,7 +70,7 @@ if trab+prova>=60:
     print("Aluno aprovado")
 else:
     print("Aluno reprovado")
-    print(" ")'''
+    print(" ")
 #Construa um algoritmo, que receba três valores, A, B e C. Em seguida, apresente na tela os números em ordem crescente.
 a = int(input("Insira um valor de A: "))
 b = int(input("Insira o valor de B: "))
@@ -94,4 +94,7 @@ elif(c>a>b):
 elif(c>b>a):
     print(c,b,a)
 else:
-    print("Há algo errado")
+    print("Há algo errado")'''
+#Construa um programa que mostre menu exatamente como o exemplo abaixo e implemente as funções necessárias:
+print("== Menu de Opções ==\n1. Somar 2 números\n2. Potência de um número\n3. Raiz de grau N\n== Opção escolhida:\n")
+opção = int(input)
