@@ -61,12 +61,12 @@ if numero %2 == 0:
 else:
     numero = numero + 8
     print(numero)
-print(" ")'''
+print(" ")
 #Crie um programa que peça uma nota de trabalho e uma de prova (as duas de 0 a 100). Se a média aritmética das notas for maior ou igual a 60, escreva “Aprovado”, se não, “Reprovado”.
 print("----------------------Questão 07 --------------------")
 trab = int(input("Insira a nota do trabalho: "))
 prova = int(input("Insira a nota da prova: "))
-if trab+prova/2>=60:
+if trab+prova>=60:
     print("Aluno aprovado")
 else:
     print("Aluno reprovado")
@@ -85,4 +85,13 @@ elif (a>c>b):
 elif(b>a>c):
     print(b,a,c)
 
-elif(b)
+elif(b>c>a):
+    print(b,c,a)
+
+elif(c>a>b):
+    print(c,a,b)
+
+elif(c>b>a):
+    print(c,b,a)
+else:
+    print("Há algo errado")
