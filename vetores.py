@@ -102,19 +102,83 @@
 #     soma += lista[p]
 #     p += 1
 # print("A soma total é",soma)
-#c) Calcule a média aritmética dos valores.
+# #c) Calcule a média aritmética dos valores.
+# vetor = int(input("Insira o tamanho do vetor: "))
+# lista = [""]* vetor
+# p = 0
+#
+# while p < len(lista):
+#     lista[p] = int(input("Agora digite um número: "))
+#     p+=1
+#
+# print("-----------------------------")
+# soma = 0
+# p = 0
+# while p < len(lista):
+#     soma += lista[p]
+#     p += 1
+# print("a média é",soma/len(lista
+
+# #D) Determinar um segmento informado pelo usuário (posição inicial e final) para apresentar os
+# # números na tela. Por exemplo: na sequência 5, 2, -2, -7, 3, 14, 10, -3, 9, -6, 4, 1 o usuário
+# # teria que informar 4 e 8 (posição inicial e final, respectivamente) para mostrar na tela somente
+# #  os valores destacados.
+# vetor = int(input("Insira o tamanho do vetor: "))
+# print("------------------------------------------")
+#
+# lista = [""]*vetor
+# p = 0
+#
+# while p < len(lista):
+#     lista[p] = int(input("Agora digite um número"))
+#     p += 1
+#
+# p = int(input("Insira a posição Inicial: "))
+# pf = int(input("Insira a posição Final: "))
+#
+# while p <= pf:
+#     print("na posição",p," - valor",lista[p])
+#     p += 1
+
+# #E) Determinar um segmento informado pelo usuário (posição inicial e final) para apresentar a soma daquele
+# # intervalo. Exemplo: Na sequência 5, 2, -2, -7, 3, 14, 10, -3, 9, -6, 4, 1 , a soma do segmento destacado é 33.
+#
+# vetor = int(input("Insira o tamanho do vetor: "))
+# print("------------------------------------------")
+#
+# lista = [""]*vetor
+# p = 0
+#
+# while p < len(lista):
+#     lista[p] = int(input("Agora digite um número"))
+#     p += 1
+#
+# p = int(input("Insira a posição Inicial: "))
+# pf = int(input("Insira a posição Final: "))
+# soma = 0
+#
+# while p <= pf:
+#     print("na posição",p," - valor",lista[p])
+#     soma += lista[p]
+#     p += 1
+#
+# print("A soma total é", soma)
+
+# F) Encontre qual é o maior e o menor número desta lista. Além disso, informe quais são os índices (posições) deles.
 vetor = int(input("Insira o tamanho do vetor: "))
-lista = [""]* vetor
+print("------------------------------------------")
+
+lista = [""]*vetor
 p = 0
 
 while p < len(lista):
-    lista[p] = int(input("Agora digite um número: "))
-    p+=1
-
-print("-----------------------------")
-soma = 0
-p = 0
-while p < len(lista):
-    soma += lista[p]
+    lista[p] = int(input("Agora digite um número"))
     p += 1
-print("a média é",soma/len(lista))
+
+p = int(input("Insira a posição Inicial: "))
+pf = int(input("Insira a posição Final: "))
+
+
+while p <= pf:
+    print("na posição",p," - valor",lista[p])
+    p += 1
