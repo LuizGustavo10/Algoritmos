@@ -164,7 +164,69 @@
 #
 # print("A soma total é", soma)
 
-# F) Encontre qual é o maior e o menor número desta lista. Além disso, informe quais são os índices (posições) deles.
+# # F) Encontre qual é o maior e o menor número desta lista. Além disso, informe quais são os índices (posições) deles.
+# vetor = int(input("Insira o tamanho do vetor: "))
+# print("------------------------------------------")
+#
+# lista = [""]*vetor
+# p = 0
+#
+# while p < len(lista):
+#     lista[p] = int(input("Agora digite um número"))
+#     p += 1
+# print("------------------------------------------")
+# print("Lembrando que a posição começa em 0")
+# p = int(input("Insira a posição Inicial: "))
+# pf = int(input("Insira a posição Final: "))
+#
+# maior = lista[p]
+# menor = lista[p]
+#
+# while p <= pf:
+#     print("na posição",p," - valor",lista[p])
+#     if lista[p] > maior:
+#         maior = lista[p]
+#     if lista[p] < menor:
+#         menor = lista[p]
+#     p += 1
+# print("------------------------------------------")
+# print("O maior número é",maior)
+# print("O menor número é",menor)
+
+# #G)Encontre qual é o maior e o menor número desta lista. Além disso, informe quais são os índices (posições) deles.
+# vetor = int(input("Insira o tamanho do vetor: "))
+# print("------------------------------------------")
+#
+# lista = [""]*vetor
+# p = 0
+#
+# while p < len(lista):
+#     lista[p] = int(input("Agora digite um número"))
+#     p += 1
+# print("------------------------------------------")
+# print("Lembrando que a posição começa em 0")
+# p = int(input("Insira a posição Inicial: "))
+# pf = int(input("Insira a posição Final: "))
+#
+# maior = lista[p]
+# menor = lista[p]
+# posicaoA = p
+# posicaoB = p
+#
+# while p <= pf:
+#     print("na posição",p," - valor",lista[p])
+#     if lista[p] > maior:
+#         maior = lista[p]
+#         posicaoA = p
+#     if lista[p] < menor:
+#         menor = lista[p]
+#         posicaoB = p
+#     p += 1
+# print("------------------------------------------")
+# print("O maior número é",maior,"e está na posição", posicaoA)
+# print("O menor número é",menor,"e está na posição", posicaoB)
+
+# H) Informe quantos números pares e ímpares foram digitados (apenas a quantidade de cada).
 vetor = int(input("Insira o tamanho do vetor: "))
 print("------------------------------------------")
 
@@ -174,11 +236,20 @@ p = 0
 while p < len(lista):
     lista[p] = int(input("Agora digite um número"))
     p += 1
-
+print("------------------------------------------")
+print("Lembrando que a posição começa em 0")
 p = int(input("Insira a posição Inicial: "))
 pf = int(input("Insira a posição Final: "))
-
+par = impar = 0
 
 while p <= pf:
     print("na posição",p," - valor",lista[p])
+    if lista[p] % 2 == 0:
+        par += 1
+    else:
+        impar +=1
     p += 1
+
+print("------------------------------------------")
+print("A quantida de número(s) par é",par)
+print("A quantida de número(s) impar é",impar)
