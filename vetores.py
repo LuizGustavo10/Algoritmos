@@ -226,30 +226,68 @@
 # print("O maior número é",maior,"e está na posição", posicaoA)
 # print("O menor número é",menor,"e está na posição", posicaoB)
 
-# H) Informe quantos números pares e ímpares foram digitados (apenas a quantidade de cada).
-vetor = int(input("Insira o tamanho do vetor: "))
-print("------------------------------------------")
+# # H) Informe quantos números pares e ímpares foram digitados (apenas a quantidade de cada).
+# vetor = int(input("Insira o tamanho do vetor: "))
+# print("------------------------------------------")
+#
+# lista = [""]*vetor
+# p = 0
+#
+# while p < len(lista):
+#     lista[p] = int(input("Agora digite um número"))
+#     p += 1
+# print("------------------------------------------")
+# print("Lembrando que a posição começa em 0")
+# p = int(input("Insira a posição Inicial: "))
+# pf = int(input("Insira a posição Final: "))
+# par = impar = 0
+#
+# while p <= pf:
+#     print("na posição",p," - valor",lista[p])
+#     if lista[p] % 2 == 0:
+#         par += 1
+#     else:
+#         impar +=1
+#     p += 1
+#
+# print("------------------------------------------")
+# print("A quantida de número(s) par é",par)
+# print("A quantida de número(s) impar é",impar)
 
+# # 6)Crie um vetor para armazenar alguns números que serão utilizados no cálculo da tabuada.
+# # a) Apresente todos os números informados e seu respectivo dobro.
+# vetor = int(input("Insira o tamnho da lista de números:"))
+# lista = [""]*vetor
+#
+# p = 0
+# print("------------------------------------------")
+# while p < len(lista):
+#     lista[p] = int(input("Insira o número:"))
+#     p+=1
+#
+# p = 0
+# print("------------------------------------------")
+# while p < len(lista):
+#     print("O número digitado foi",lista[p]," e seu dobro é",2*lista[p])
+#     p+=1
+
+#B)Para cada número presente no vetor, faça a tabuada do 1 ao 10 (utilizando laço de repetição).
+vetor = int(input("Insira o tamanho da lista de números:"))
 lista = [""]*vetor
+
 p = 0
-
+print("------------------------------------------")
 while p < len(lista):
-    lista[p] = int(input("Agora digite um número"))
-    p += 1
-print("------------------------------------------")
-print("Lembrando que a posição começa em 0")
-p = int(input("Insira a posição Inicial: "))
-pf = int(input("Insira a posição Final: "))
-par = impar = 0
+    lista[p] = int(input("Insira o número"))
+    p+=1
 
-while p <= pf:
-    print("na posição",p," - valor",lista[p])
-    if lista[p] % 2 == 0:
-        par += 1
-    else:
-        impar +=1
-    p += 1
-
+p = 0
 print("------------------------------------------")
-print("A quantida de número(s) par é",par)
-print("A quantida de número(s) impar é",impar)
+while p < len(lista):
+    tab = 0
+    print("Tabuado do número",lista[p])
+    while tab <= 10:
+        print(lista[p],"x",tab,"=",lista[p]*tab)
+        tab+=1
+    print("------------------------------------------")
+    p += 1
