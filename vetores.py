@@ -22,6 +22,82 @@
 # while p >= 0:
 #     print("na posição", p," - valor", lista[p])
 #     p-=1
+# # c) Mostre na tela o dobro de todos os números.
+#
+# lista = [""]*100
+# listaDobro = [""]*100
+# p = 0
+# n = 1
+# dobro = 1
+# while p < len(lista):
+#     lista[p] = n
+#     listaDobro[p] = lista[p] * 2
+#     n+=1
+#     p += 1
+#
+# p = 0
+# while p < len(lista):
+#     print("na posição", p, " - valor", lista[p])
+#     print("O seu dobro é", listaDobro[p])
+#     print("---------------------------------------")
+#     p+=1
+#
+# #D) Apresente na tela a soma de todos os números.
+#
+# lista = [""]*100
+#
+# p = soma = 0
+# n = 1
+# dobro = 1
+# while p < len(lista):
+#     lista[p] = n
+#     soma = soma + lista[p]
+#     n+=1
+#     p += 1
+#
+# p = 0
+# while p < len(lista):
+#     print("na posição", p, " - valor", lista[p])
+#     print("---------------------------------------")
+#     p+=1
+# print("A soma de todos os números é", soma)
+
+# #E) Apresente na tela a média geral dos valores contidos na lista.
+#
+# lista = [""]*100
+#
+# p = soma = 0
+# n = 1
+# dobro = 1
+# while p < len(lista):
+#     lista[p] = n
+#     soma = soma + lista[p]
+#     n+=1
+#     p += 1
+#
+# p = 0
+# while p < len(lista):
+#     p+=1
+# print("A media é", soma/len(lista))
+
+# #F) Mostre na tela a quantidade de números pares.
+#
+# lista = [""]*100
+#
+# p = soma = par = 0
+# n = 1
+# dobro = 1
+# while p < len(lista):
+#     lista[p] = n
+#     if lista[p] % 2 == 0:
+#         par += 1
+#     n+=1
+#     p += 1
+#
+# print(par, "nºs pares")
+#
+#
+#
 
 # #2)Faça um programa para armazenar 6 números inteiros para uma loteria, permitindo
 # #que o usuário informe os números sorteados. Depois de preencher, informe uma mensagem e os números sorteados.
@@ -271,23 +347,42 @@
 #     print("O número digitado foi",lista[p]," e seu dobro é",2*lista[p])
 #     p+=1
 
-#B)Para cada número presente no vetor, faça a tabuada do 1 ao 10 (utilizando laço de repetição).
-vetor = int(input("Insira o tamanho da lista de números:"))
-lista = [""]*vetor
+# #B)Para cada número presente no vetor, faça a tabuada do 1 ao 10 (utilizando laço de repetição).
+# vetor = int(input("Insira o tamanho da lista de números:"))
+# lista = [""]*vetor
+#
+# p = 0
+# print("------------------------------------------")
+# while p < len(lista):
+#     lista[p] = int(input("Insira o número"))
+#     p+=1
+#
+# p = 0
+# print("------------------------------------------")
+# while p < len(lista):
+#     tab = 0
+#     print("Tabuado do número",lista[p])
+#     while tab <= 10:
+#         print(lista[p],"x",tab,"=",lista[p]*tab)
+#         tab+=1
+#     print("-----------------------------------------")
+#     p += 1
 
-p = 0
-print("------------------------------------------")
-while p < len(lista):
-    lista[p] = int(input("Insira o número"))
+# 7) Um professor precisa armazenar uma lista de n alunos e seus respectivos conceitos. Crie um programa para auxiliar este professor.
+vetor = int(input("Insira a quantidade de alunos"))
+listaAluno = [""]*vetor
+listaNota = [""]*vetor
+p= 0
+
+while p < len(listaAluno):
+    listaAluno[p] = str(input("Insira o nome do Aluno: "))
+    listaNota[p] = int(input("Insira a nota do Aluno: "))
+    print("------------------------------")
     p+=1
 
-p = 0
-print("------------------------------------------")
-while p < len(lista):
-    tab = 0
-    print("Tabuado do número",lista[p])
-    while tab <= 10:
-        print(lista[p],"x",tab,"=",lista[p]*tab)
-        tab+=1
-    print("-----------------------------------------")
-    p += 1
+p= 0
+while p < len(listaAluno):
+    print("nome:",listaAluno[p])
+    print("nota:",listaNota[p])
+    p+=1
+    print("-------------------------------")
