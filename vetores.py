@@ -382,7 +382,6 @@ while p < len(listaAluno):
 
 p= 0
 while p < len(listaAluno):
-    print("nome:",listaAluno[p])
-    print("nota:",listaNota[p])
+    print("O nome do aluno é {} e sua nota é {}.".format(listaAluno[p],listaNota[p]))
     p+=1
     print("-------------------------------")
