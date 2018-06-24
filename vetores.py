@@ -368,20 +368,37 @@
 #     print("-----------------------------------------")
 #     p += 1
 
-# 7) Um professor precisa armazenar uma lista de n alunos e seus respectivos conceitos. Crie um programa para auxiliar este professor.
-vetor = int(input("Insira a quantidade de alunos"))
-listaAluno = [""]*vetor
-listaNota = [""]*vetor
-p= 0
+# # 7) Um professor precisa armazenar uma lista de n alunos e seus respectivos conceitos. Crie um programa para auxiliar este professor.
+# vetor = int(input("Insira a quantidade de alunos"))
+# listaAluno = [""]*vetor
+# listaNota = [""]*vetor
+# p= 0
+#
+# while p < len(listaAluno):
+#     listaAluno[p] = str(input("Insira o nome do Aluno: "))
+#     listaNota[p] = int(input("Insira a nota do Aluno: "))
+#     print("------------------------------")
+#     p+=1
+#
+# p= 0
+# while p < len(listaAluno):
+#     print("O nome do aluno é {} e sua nota é {}.".format(listaAluno[p],listaNota[p]))
+#     p+=1
+#     print("-------------------------------")
+t = int(input("Tamanho da lista:"))
 
-while p < len(listaAluno):
-    listaAluno[p] = str(input("Insira o nome do Aluno: "))
-    listaNota[p] = int(input("Insira a nota do Aluno: "))
-    print("------------------------------")
+lista = [""]*t
+
+p = 0
+while p < len(lista):
+    lista[p] = int(input("Número: "))
     p+=1
 
-p= 0
-while p < len(listaAluno):
-    print("O nome do aluno é {} e sua nota é {}.".format(listaAluno[p],listaNota[p]))
-    p+=1
-    print("-------------------------------")
+from random import randint
+
+# Informe o número inicial e o final
+x = randint(0, len(lista))
+print(x)
+p = x
+
+print(lista[p])
