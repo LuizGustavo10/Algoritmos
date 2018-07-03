@@ -86,3 +86,27 @@ print(numeros)
 # print("""
 #
 # """)
+#Exemplo de Forca abaixo
+palavraSecreta = ["L","U","I","Z"]
+letrasDescobertas = []
+
+print("---------Jogo da Forca----------")
+
+for i in range(0, len(palavraSecreta)):  #é como se fosse o p = p + 1, vai até o tamanho da palavra
+    letrasDescobertas.append("_") #coloca o tracinho no lugar de cada letra
+
+acertou = False
+
+while acertou == False: #Enquanto ele não acertou
+    letra = input("dígite a letra: ")
+
+    for i in range(0, len(palavraSecreta)): #percorre cada uma das letras da palavraSecreta, para verificar se a letra é correta
+        if letra == palavraSecreta[i]: #compara a cada uma das letras de palavra secreta
+            letrasDescobertas[i] = letra #substitui o tracinho pela letra
+
+        print(letrasDescobertas[i])
+
+    acertou = True #abaixo vai verificar as letras que foram descobertas
+    for p in range(0, len(letrasDescobertas)):
+        if letrasDescobertas[p] == "_":
+            acertou = False
