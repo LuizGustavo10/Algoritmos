@@ -102,7 +102,7 @@ while acertou == False: #Enquanto ele não acertou
 
     for i in range(0, len(palavraSecreta)): #percorre cada uma das letras da palavraSecreta, para verificar se a letra é correta
         if letra == palavraSecreta[i]: #compara a cada uma das letras de palavra secreta
-            letrasDescobertas[i] = letra #substitui o tracinho pela letra
+            letrasDescobertas[i].append(letra) #substitui o tracinho pela letra
 
         print(letrasDescobertas[i])
 
