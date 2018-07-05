@@ -6,13 +6,10 @@ listaDicas = [
 "tem folhas...","serve de abrigo...", "marca de carro...", "academia...", "um jogo battle royale...", "um muscle car...", "um animal..." ]
 
 
-num = int(input("Digite um número de 0 a 6 para começar o jogo !! "))
-
 # Escolhe uma palavra da lista
 x = randint(0,len(listaPalavras) - 1) # é -1 porque a lista começa em 0, se não tiver o -1 vai passar o tanto de posições, aqui estou trabalhando com posições
-z = randint(0,len(listaDicas) - 1)
-escolhida = listaPalavras[num]                    # o "X" refere-se a posição escolhida
-escolhida_dicas = listaDicas[num]
+
+escolhida = listaPalavras[x]                    # o "X" refere-se a posição escolhida
 
 #isso vai separar as letras da palavra, será usado em breve
 
@@ -24,6 +21,7 @@ for c in range(0,len(escolhida)): #essa parte percorre cada letra da palavra esc
     descobertas.append("_") #append ??????????????????????????
 
 print(" _" * len(escolhida)) #Esse é apenas o print Inicial, antes do laço de repetição
+print(listaDicas[x])
 
 acertou = False
 erros = 0
@@ -32,7 +30,7 @@ while acertou == False:
     acertos = 0
     print(" ")
     letra = input(str("Dígite uma letra: "))
-    print(listaDicas[num])
+    print(listaDicas[x])
 
 
     for c in range(0, len(escolhida)):
@@ -47,54 +45,77 @@ while acertou == False:
     if acertos == 0:  #contador de erros, se não tiver nenhum acerto na rodada, mais um erro
         erros+=1
 
+
+    if letra in digitadas:
+        print("Você já tentou essa letra !!") #verifica se a letra ja foi digitada, ainda falta arrumar
+        continue
+
+    if erros == 1:
+        print("Você errou ! ")
+        print("""
+------
+|    O
+|
+|
+|
+        """)
+
+    elif erros == 2:
+        print("""
+------
+|    O
+|   /
+|
+|
+        """)
+
+    elif erros == 3:
+        print("""
+------
+|    O
+|   / \\
+|
+|
+    """)
+    elif erros == 4:
+        print("""
+------
+|    O
+|   /|\\
+|
+|
+""")
+
+    elif erros == 5:
+        print("""
+------
+|    O
+|   /|\\
+|   /
+|
+""")
+
+    elif erros == 6:
+        print("""
+------
+|    O
+|   /|\\
+|   / \\
+|
+        """)
+
+    if erros == 7:
+        print("Enforcado")
+        break
     acertou = True
     for z in range(0, len(descobertas)):
         if descobertas[z] == "_":
             acertou = False #pula para trás se tiver algum tracinho
 
-    if letra in digitadas:
-        print("Você já tentou essa letra !!")
-        continue
-
-    else:
-        erros +=1
-        print("Você errou ! ")
-        print(" (0)")
-
-    linha2 = ""
-    if erros == 2:
-        linha2 = (" | ")
-
-    elif erros == 3:
-        linha2 = (" /| ")
-    elif erros >= 4:
-        linha2 = (" /|\\")
-
-    print(linha2)
-
-    linha3 = ""
-
-    if erros == 5:
-        linha3 += (" / ")
-
-    if erros == 6:
-        linha3 += (" / \\")
-
-        print(linha3)
-
-    if erros == 7:
-        print("Enforcado")
-        break
-
-
-
-
-
 
 
 
 print(" ")
-print(erros)
 print("Parabéns!!!!")
 
 

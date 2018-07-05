@@ -110,3 +110,35 @@ while acertou == False: #Enquanto ele não acertou
     for p in range(0, len(letrasDescobertas)):
         if letrasDescobertas[p] == "_":
             acertou = False
+
+#funções
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
