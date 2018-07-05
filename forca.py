@@ -18,29 +18,45 @@ descobertas = []
 for c in range(0,len(escolhida)): #essa parte percorre cada letra da palavra escolhida aleatoriamente, uma palavra pode ser uma lista...
     descobertas.append("_") #append ??????????????????????????
 
+print(" _" * len(escolhida)) #Esse é apenas o print Inicial, antes do laço de repetição
+
 acertou = False
+erros = 0
 
 while acertou == False:
-    letra = input("Dígite uma letra: ")
+    acertos = 0
+    print(" ")
+    letra = input(str("Dígite uma letra: "))
+    print(listaDicas[x])
 
     for c in range(0, len(escolhida)):
-        if letra == escolhida[c]:
-            descobertas[c].append(letra)
 
-    print(descobertas[c])
+
+        if letra == escolhida[c]:
+            descobertas[c] = letra
+            acertos+=1
+
+        print(descobertas[c], end=' ')
+
+    if acertos == 0:  #contador de erros, se não tiver nenhum acerto na rodada, mais um erro
+        erros+=1
 
     acertou = True
     for z in range(0, len(descobertas)):
         if descobertas[z] == "_":
             acertou = False #pula para trás se tiver algum tracinho
 
+print(" ")
+print(erros)
+print("Parabéns!!!!")
 
 
-#apenas outro modo de separar a palavra
+# # apenas outro modo de separar a palavra
 # p = 0
 # while p < len(escolhida):
 #     print(escolhida[p])
 #     p += 1
-
-
+#
+#
+#
 # for c in range (0, len(listaPalavras)): #o "c" seria como o p, onde p = p+1, o for faz isso automaticamente, conta do 0 até o tamanho final da lista
