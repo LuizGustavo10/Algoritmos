@@ -1,4 +1,6 @@
 from random import randint
+
+
 listaPalavras = [
 "arvore","casa", "mercedes", "fitness", "fortnite", "mustang", "zebra" ]
 
@@ -14,7 +16,6 @@ escolhida = listaPalavras[x]                    # o "X" refere-se a posição es
 #isso vai separar as letras da palavra, será usado em breve
 
 descobertas = []
-
 digitadas = []
 
 for c in range(0,len(escolhida)): #essa parte percorre cada letra da palavra escolhida aleatoriamente, uma palavra pode ser uma lista...
@@ -30,101 +31,93 @@ while acertou == False:
     acertos = 0
     print(" ")
     letra = input(str("Dígite uma letra: "))
-    print(listaDicas[x])
-
-
-    for c in range(0, len(escolhida)):
-
-
-        if letra == escolhida[c]:
-            descobertas[c] = letra
-            acertos+=1
-
-        print(descobertas[c], end=' ')
-
-    if acertos == 0:  #contador de erros, se não tiver nenhum acerto na rodada, mais um erro
-        erros+=1
-
 
     if letra in digitadas:
         print("Você já tentou essa letra !!") #verifica se a letra ja foi digitada, ainda falta arrumar
-        continue
+    else:
 
-    if erros == 1:
-        print("Você errou ! ")
-        print("""
-------
-|    O
-|
-|
-|
+        digitadas.append(letra)
+
+        print(listaDicas[x])
+
+
+        for c in range(0, len(escolhida)):
+
+
+            if letra == escolhida[c]:
+                descobertas[c] = letra
+                acertos+=1
+
+            print(descobertas[c], end=' ')
+
+        if acertos == 0:  #contador de erros, se não tiver nenhum acerto na rodada, mais um erro
+            erros+=1
+
+
+        if erros == 1:
+            print("Você errou ! ")
+            print("""
+    ------
+    |    O
+    |
+    |
+    |
+            """)
+
+        elif erros == 2:
+            print("""
+    ------
+    |    O
+    |   /
+    |
+    |
+            """)
+
+        elif erros == 3:
+            print("""
+    ------
+    |    O
+    |   / \\
+    |
+    |
         """)
-
-    elif erros == 2:
-        print("""
-------
-|    O
-|   /
-|
-|
-        """)
-
-    elif erros == 3:
-        print("""
-------
-|    O
-|   / \\
-|
-|
+        elif erros == 4:
+            print("""
+    ------
+    |    O
+    |   /|\\
+    |
+    |
+    |
     """)
-    elif erros == 4:
-        print("""
-------
-|    O
-|   /|\\
-|
-|
-""")
 
-    elif erros == 5:
-        print("""
-------
-|    O
-|   /|\\
-|   /
-|
-""")
+        elif erros == 5:
+            print("""
+    ------
+    |    O
+    |   /|\\
+    |   /
+    |
+    """)
 
-    elif erros == 6:
-        print("""
-------
-|    O
-|   /|\\
-|   / \\
-|
-        """)
+        elif erros == 6:
+            print("""
+    ------
+    |    O
+    |   /|\\
+    |   / \\
+    |
+            """)
 
-    if erros == 7:
-        print("Enforcado")
-        break
-    acertou = True
-    for z in range(0, len(descobertas)):
-        if descobertas[z] == "_":
-            acertou = False #pula para trás se tiver algum tracinho
+        if erros == 7:
+            print("Enforcado")
+            break
 
-
-
+        acertou = True
+        for z in range(0, len(descobertas)):
+            if descobertas[z] == "_":
+                acertou = False #pula para trás se tiver algum tracinho
 
 print(" ")
 print("Parabéns!!!!")
-
-
-# # apenas outro modo de separar a palavra
-# p = 0
-# while p < len(escolhida):
-#     print(escolhida[p])
-#     p += 1
-#
-#
-#
-# for c in range (0, len(listaPalavras)): #o "c" seria como o p, onde p = p+1, o for faz isso automaticamente, conta do 0 até o tamanho final da lista
+# .upper

@@ -113,6 +113,17 @@ while acertou == False: #Enquanto ele não acertou
 
 #funções
 
+# estudar funções
+#inicio
+def mostrarErro1():
+    # mostrar/pedir numeros, sempre use um verbo no def
+
+# seu códifo lá em baixo:
+erro=1
+
+if erro == 1:
+    def mostrarErro1():
+
 
 
 
