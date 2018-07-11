@@ -137,14 +137,14 @@ while reiniciar == 1:
 
     # Escolhe uma palavra da lista
     x = randint(0,len(listaPalavras) - 1) # é -1 porque a lista começa em 0, se não tiver o -1 vai passar o tanto de posições, aqui estou trabalhando com posições
-    escolhida = listaPalavras[x] # o "X" refere-se a posição escolhida
+    escolhida = listaPalavras[x] # o "X" refere-se a posição escolhida, no caso escolhe uma palavra da lista
 
-    #isso vai separar as letras da palavra, será usado em breve
+    #listas vazias para armazenar dados
     descobertas = []
     digitadas = []
 
     for c in range(0,len(escolhida)): #essa parte percorre cada letra da palavra escolhida aleatoriamente, uma palavra pode ser uma lista...
-        descobertas.append("_") #append ??????????????????????????
+        descobertas.append("_") #coloca traço em todas as letras de descobertas
 
     print(" _" * len(escolhida)) #Esse é apenas o print Inicial, antes do laço de repetição
     print(listaDicas[x])
@@ -155,22 +155,22 @@ while reiniciar == 1:
     while acertou == False:
         acertos = 0
         print(" ")
-        letra = input(str("Dígite uma letra: "))
+        letra = input(str("Dígite uma letra: ")).lower() #letra fica minúscula
 
         if letra in digitadas:
-            print("Você já tentou essa letra !!") #verifica se a letra ja foi digitada, ainda falta arrumar
+            print("Você já tentou essa letra !!") #verifica se a letra ja foi digitada
         else:
-            digitadas.append(letra)
+            digitadas.append(letra) # a letra vai para a lista de digitadas, para evitar repetições
             print(listaDicas[x])
 
             for c in range(0, len(escolhida)):
-                if letra == escolhida[c]:
-                    descobertas[c] = letra
+                if letra == escolhida[c]: #se alguma letra é igual a palavra da lista"escolhida"
+                    descobertas[c] = letra #substitui o tracinho de descoberta pela letra
                     acertos+=1
 
                 print(descobertas[c], end=' ')
 
-            if acertos == 0:  #contador de erros, se não tiver nenhum acerto na rodada, mais um erro
+            if acertos == 0:  #contador de erros, se não tiver nenhum acerto na rodada, soma mais um erro
                 erros+=1
 
             if erros == 1:
@@ -187,17 +187,17 @@ while reiniciar == 1:
                 erro6()
             if erros == 7:
                 erro7()
-                break
+                break #sai do laço de repetição para dar fim no jogo
 
-            acertou = True
+            acertou = True # se chegou até aqui acertou fica TRUE
             for z in range(0, len(descobertas)):
                 if descobertas[z] == "_":
-                    acertou = False #pula para trás se tiver algum tracinho
+                    acertou = False #pula lá para cima se tiver algum tracinho ainda
 
-    if erros < 7:
+    if erros < 7: #se o erro for < 7 dá o parabéns
         print(" ")
         ganhou()
-        #se o erro for < 7 dá o parabéns
+
     reiniciar = int(input("Insira (1) para jogar novamente e (2) para sair: "))
     if reiniciar == 2:
         break           #se o usuário escolher(2) sai do programa
