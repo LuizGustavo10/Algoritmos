@@ -144,7 +144,7 @@ while reiniciar == 1:
     digitadas = []
 
     for c in range(0,len(escolhida)): #essa parte percorre cada letra da palavra escolhida aleatoriamente, uma palavra pode ser uma lista...
-        descobertas.append("_") #coloca traço em todas as letras de descobertas
+        descobertas.append("_") #coloca traço na lista vazia de descobertas
 
     print(" _" * len(escolhida)) #Esse é apenas o print Inicial, antes do laço de repetição
     print(listaDicas[x])
