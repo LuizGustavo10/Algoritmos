@@ -127,11 +127,12 @@ def erro7():
 ┼┼┼┼┼┼┼┼▄▄▄██┼┼█▀█▀█┼┼██▄▄▄┼┼┼┼┼┼┼┼┼
 ┼┼┼┼┼┼┼┼▀▀██┼┼┼┼┼┼┼┼┼┼┼██▀▀┼┼┼┼┼┼┼┼┼
 ┼┼┼┼┼┼┼┼┼┼▀▀┼┼┼┼┼┼┼┼┼┼┼▀▀┼┼┼┼┼┼┼┼┼┼┼''')
-#-----------FUNÇÃO RETORNO-------
+#-----------FUNÇÃO RETORNO e PARÂMETRO-------
 #abaixo está o seletor de posição, resposável por escolher uma determinada palavra da lista
-def posicao():
-    a = randint(0,len(listaPalavras)-1) # é -1 porque a lista começa em 0, se não tiver o -1 vai passar o tanto de posições, aqui estou trabalhando com posições
-    return a #irá retornar para posicao o valor de "a", essa variavel só vale aqui dentro
+def posicao(a,b):
+    aleatorio = randint(a,b)
+    return aleatorio #irá retornar para posicao o valor de "a", essa variavel só vale aqui dentro
+
 
 #inicio do código da forca...
 reiniciar = 1
@@ -141,8 +142,8 @@ listaDicas = [
 "tem folhas...","serve de abrigo...", "marca de carro...", "academia...", "um jogo battle royale...", "um muscle car...", "um animal...","Um animal já extinto...","Uma cor...","Um jogo de construções..."]
 
 while reiniciar == 1:
-
-    x = posicao() #transferi o valor da função para a variavel "x"
+    # abaixo é -1 porque a lista começa em 0, se não tiver o -1 vai passar o tanto de posições, aqui estou trabalhando com posições
+    x = posicao(0, len(listaPalavras)-1) #transferi o valor da função para a variavel "x"
     #pega o valor de "x" e verifica na lista a palavra, estão guarda uma palavra em escolhida
     escolhida = listaPalavras[x] # o "X" refere-se a posição escolhida, no caso escolhe uma palavra da lista
 
