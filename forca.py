@@ -133,6 +133,9 @@ def posicao(a,b):
     aleatorio = randint(a,b)
     return aleatorio #irá retornar para posicao o valor de "a", essa variavel só vale aqui dentro
 
+def tracinhos_e_dicas():
+    print(" _" * len(escolhida)) #Esse é apenas o print Inicial, antes do laço de repetição
+    print(listaDicas[x])
 
 #inicio do código da forca...
 reiniciar = 1
@@ -143,7 +146,7 @@ listaDicas = [
 
 while reiniciar == 1:
     # abaixo é -1 porque a lista começa em 0, se não tiver o -1 vai passar o tanto de posições, aqui estou trabalhando com posições
-    x = posicao(0, len(listaPalavras)-1) #transferi o valor da função para a variavel "x"
+    x = posicao(0, len(listaPalavras)-1) #transferi o valor da função para a variavel "x"---------<----------<--------<--------<-------<----<-
     #pega o valor de "x" e verifica na lista a palavra, estão guarda uma palavra em escolhida
     escolhida = listaPalavras[x] # o "X" refere-se a posição escolhida, no caso escolhe uma palavra da lista
 
@@ -154,8 +157,7 @@ while reiniciar == 1:
     for c in range(0,len(escolhida)): #essa parte percorre cada letra da palavra escolhida aleatoriamente, uma palavra pode ser uma lista...
         descobertas.append("_") #coloca traço na lista vazia de descobertas
 
-    print(" _" * len(escolhida)) #Esse é apenas o print Inicial, antes do laço de repetição
-    print(listaDicas[x])
+    tracinhos_e_dicas() #exibe os tracinhos iniciais e a dicas...
 
     acertou = False
     erros = 0
