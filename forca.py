@@ -143,7 +143,7 @@ listaPalavras = [
 "arvore","casa", "mercedes", "fitness", "fortnite", "mustang", "zebra","dinossauro","laranja","minecraft"]
 listaDicas = [
 "tem folhas...","serve de abrigo...", "marca de carro...", "academia...", "um jogo battle royale...", "um muscle car...", "um animal...","Um animal já extinto...","Uma cor...","Um jogo de construções..."]
-
+=!
 while reiniciar == 1:
     # abaixo é -1 porque a lista começa em 0, se não tiver o -1 vai passar o tanto de posições, aqui estou trabalhando com posições
     x = posicao(0, len(listaPalavras)-1) #transferi o valor da função para a variavel "x"---------<----------<--------<--------<-------<----<-
