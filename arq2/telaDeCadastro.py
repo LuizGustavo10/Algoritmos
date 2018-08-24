@@ -43,5 +43,5 @@ while option != 4:
 
 
 
-#read = Le o arquivo inteiro / readlines()
+#read = Le o arquivo inteiro / readlines() é como uma lista
 #fileid meenu > função guardar inf, > 1 opção para chamar a forca > usar biblioteca para importar a palavra aleatória >
