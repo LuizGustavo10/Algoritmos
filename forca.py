@@ -134,8 +134,8 @@ def posicao(a,b):
     return aleatorio #irá retornar para posicao o valor de "a", essa variavel só vale aqui dentro
 
 def tracinhos_e_dicas():
-    print(" _" * len(escolhida)) #Esse é apenas o print Inicial, antes do laço de repetição
-    print(listaDicas[x])
+    print("dica: ",listaDicas[x])
+    print(" _" * (len(escolhida)-1)) #Esse é apenas o print Inicial, antes do laço de repetição
 
 option = 0
 while option != 4:
@@ -150,19 +150,25 @@ while option != 4:
     option = int(input('Insira um Nº:'))
     if option == 1:
         #inicio do código da forca...
-        reiniciar = "s"
 
         listaPalavras = []
-        listaDicas = ["1","2"]
-
+        listaDicas = []
+        #inserindo palavras
         arq = open("arquivos/palavras.txt","r")
         conteudo = arq.readlines()
         for x in range(0,len(conteudo)):
             listaPalavras.append(conteudo[x])
         arq.close()
+        #inserindo dicas
+        arq = open("arquivos/dicas.txt","r")
+        conteudo = arq.readlines()
+        for x in range(0,len(conteudo)):
+            listaDicas.append(conteudo[x])
+        arq.close()
 
 
 
+        reiniciar = "s"
         while reiniciar == "s":
             # abaixo é -1 porque a lista começa em 0, se não tiver o -1 vai passar o tanto de posições, aqui estou trabalhando com posições
             x = posicao(0, len(listaPalavras)-1) #transferi o valor da função para a variavel "x"---------<----------<--------<--------<-------<----<-
@@ -172,10 +178,10 @@ while option != 4:
 
             #listas vazias para armazenar dados
             descobertas = []
-
             digitadas = []
 
-            for c in range(0,len(escolhida)): #essa parte percorre cada letra da palavra escolhida aleatoriamente, uma palavra pode ser uma lista...
+            #-1 por causa do bug da lista
+            for c in range(0,len(escolhida)-1): #essa parte percorre cada letra da palavra escolhida aleatoriamente, uma palavra pode ser uma lista...
                 descobertas.append("_") #coloca traço na lista vazia de descobertas
 
             tracinhos_e_dicas() #exibe os tracinhos iniciais e a dicas...
@@ -192,9 +198,10 @@ while option != 4:
                     print("Você já tentou essa letra !!") #verifica se a letra ja foi digitada
                 else:
                     digitadas.append(letra) # a letra vai para a lista de digitadas, para evitar repetições
-                    print(listaDicas[x])
+                    print("--------------------------------")
+                    print("Dica: ",listaDicas[x])
 
-                    for c in range(0, len(escolhida)):
+                    for c in range(0, len(escolhida)-1): #-1 por causa do bug da lista
                         if letra == escolhida[c]: #se alguma letra é igual a palavra da lista"escolhida"
                             descobertas[c] = letra #substitui o tracinho de descoberta pela letra
                             acertos+=1
@@ -235,12 +242,24 @@ while option != 4:
 #Tela de cadastro
     if option == 2:
         print("------------Tela de Cadastro de palavras-----------------")
+        print(" ")
         arq = open("arquivos/palavras.txt","a")#trabalha com aquivo txt.
         #escrevendo na variável arq
         palavraArq = input("informe a palavra a ser cadastrada: ")
         arq.writelines(palavraArq+"\n") #cuidade com write e writelines
         #Salva as modificações e salva o arquivo
         arq.close()
+        print(" ")
+
+        print("------------Tela de Cadastro de dicas-----------------")
+        print(" ")
+        arq = open("arquivos/dicas.txt","a")#trabalha com aquivo txt.
+        #escrevendo na variável arq
+        dicasArq = input("informe a dica a ser cadastrada: ")
+        arq.writelines(dicasArq+"\n") #cuidade com write e writelines
+        #Salva as modificações e salva o arquivo
+        arq.close()
+        print(" ")
     if option == 3:
         arq = open("arquivos/palavras.txt","r")
         conteudo = arq.readlines()
