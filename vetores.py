@@ -224,48 +224,48 @@
 # o usuário informe os números sorteados. Em seguida, peça para o usuário informar os seis números que ele apostou.
 # Por fim, apresente na tela quantos números ele acertou, informando se ele não ganhou nada (0 a 3 acertos),
 # se acertou a quadra (4 acertos), a quina (5 acertos) ou se ele nunca mais vai precisar trabalhar (6 acertos).
-from random import randint
-
-listaJogador = [""]*6
-listaAleatoria = [""]*6
-p = 0
-
-while p < len(listaJogador):
-    listaJogador[p] = int(input("Insira o número a ser jogado"))
-    p+=1
-
-x = 0
-result = []
-while x < len(listaAleatoria):
-    listaAleatoria[x] = randint(1,60)
-    if listaAleatoria[x] not in result:
-        result.append(listaAleatoria[x])
-
-    x+=1
-
-#agora para comparar
-acertos = p = 0
-while p < len(listaJogador):
-
-    x = 0
-    while x < len(listaAleatoria):
-        if listaJogador[p] == listaAleatoria[x]:
-            acertos += 1
-        x+=1
-    p+=1
-print("---------------------------------------------")
-print("Nºs que você jogou {}".format(listaJogador))
-print("Nºs que foram sorteados {}".format(listaAleatoria))
-print("---------------------------------------------")
-
-if acertos <= 3:
-    print("você acertou {} nºs, não ganhou nada :(".format(acertos))
-elif acertos == 4:
-    print("você acertou {} nºs, ganhou a quadra".format(acertos))
-elif acertos == 5:
-    print("você acertou {} nºs, ganhou a quina".format(acertos))
-elif acertos == 6:
-    print("você acertou {} nºs, nunca mais vai precisar trabalhar :D".format(acertos))
+# from random import randint
+#
+# listaJogador = [""]*6
+# listaAleatoria = [""]*6
+# p = 0
+#
+# while p < len(listaJogador):
+#     listaJogador[p] = int(input("Insira o número a ser jogado"))
+#     p+=1
+#
+# x = 0
+# result = []
+# while x < len(listaAleatoria):
+#     listaAleatoria[x] = randint(1,60)
+#     if listaAleatoria[x] not in result:
+#         result.append(listaAleatoria[x])
+#
+#     x+=1
+#
+# #agora para comparar
+# acertos = p = 0
+# while p < len(listaJogador):
+#
+#     x = 0
+#     while x < len(listaAleatoria):
+#         if listaJogador[p] == listaAleatoria[x]:
+#             acertos += 1
+#         x+=1
+#     p+=1
+# print("---------------------------------------------")
+# print("Nºs que você jogou {}".format(listaJogador))
+# print("Nºs que foram sorteados {}".format(listaAleatoria))
+# print("---------------------------------------------")
+#
+# if acertos <= 3:
+#     print("você acertou {} nºs, não ganhou nada :(".format(acertos))
+# elif acertos == 4:
+#     print("você acertou {} nºs, ganhou a quadra".format(acertos))
+# elif acertos == 5:
+#     print("você acertou {} nºs, ganhou a quina".format(acertos))
+# elif acertos == 6:
+#     print("você acertou {} nºs, nunca mais vai precisar trabalhar :D".format(acertos))
 
 # # 12) Utilizando listas faça um programa que faça 5 perguntas para uma pessoa sobre um crime. As perguntas são:
 # lista =["Telefonou para a vítima?","Esteve no local do crime?","Mora perto da vítima?","Devia para a vítima?","Já trabalhou com a vítima?"]
@@ -291,14 +291,6 @@ elif acertos == 6:
 # else:
     # print("Inocente")
 
-#13) Uma empresa de pesquisas precisa tabular os resultados da seguinte enquete feita a um grande quantidade de organizações:
-
-
-
-
-
-
-
 
 
 
@@ -311,3 +303,53 @@ elif acertos == 6:
 # while p >= 0:
 #     print(palavra[p],end=", ")
 #     p -= 1
+
+
+
+#13) Uma empresa de pesquisas precisa tabular os resultados da seguinte enquete feita a um grande quantidade de organizações:
+# Você foi contratado para desenvolver um programa que leia o resultado da enquete e informe ao final o resultado da mesma.
+#  O programa deverá ler os valores até ser informado o valor 0, que encerra a entrada dos dados. Não deverão ser aceitos
+#  valores além dos válidos para o programa (0 a 6). Os valores referentes a cada uma das opções devem ser armazenados num
+#  vetor. Após os dados terem sido completamente informados, o programa deverá calcular a percentual de cada um dos concorrentes
+#   e informar o vencedor da enquete. O formato da saída foi dado pela empresa, e é o seguinte:
+
+
+print('''Qual o melhor Sistema Operacional para uso em servidores?
+1- Windows Server
+2- Unix
+3- Linux
+4- Netware
+5- Mac OS
+6- Outro
+0 para sair...
+    ''')
+option = 1
+
+listaResp = []
+while option != 7:
+
+    if option == 1:
+        resp = int(input("Quantos de Windows Server? "))
+        listaResp.append(resp)
+    elif option == 2:
+        resp = int(input("Quantos de Unix? "))
+        listaResp.append(resp)
+    elif option == 3:
+        resp = int(input("Quantos de Linux? "))
+        listaResp.append(resp)
+    elif option == 4:
+        resp = int(input("Quantos de Netware? "))
+        listaResp.append(resp)
+    elif option == 5:
+        resp = int(input("Quantos de Mac OS? "))
+        listaResp.append(resp)
+    elif option == 6:
+        resp = int(input("Quantos de Outro? "))
+        listaResp.append(resp)
+    option+=1
+
+for x in range(0,len(listaResp)):
+    percent = (listaResp[x] * 100 / 8800)
+    c = round(percent)
+
+    print("posição {}    valor {}    porcentagem {}".format(x,listaResp[x],c))
