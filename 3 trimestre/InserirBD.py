@@ -6,7 +6,7 @@
 import sqlite3
 
 def tracejado_verde():
-    print("\033[1;32m"+"---------------------------------"+"\033[m")
+    print("\033[1;32m"+"------------------------------------"+"\033[m")
 
 def criar_tabela_usuario(conexao):
 
@@ -51,7 +51,7 @@ def listar_usuario(conexao):
     usuarios = cursor.fetchall()
 
     tracejado_verde()
-    print("\033[1;32m"+"--------lista de usuarios--------"+"\033[m")
+    print("\033[1;32m"+"--------lista de usuarios-----------"+"\033[m")
     tracejado_verde()
 
     for usr in usuarios:
@@ -67,38 +67,47 @@ def localizar_cadastro(conexao):
     cursor.execute(sql)
 
     usuario = cursor.fetchall()
+    tracejado_verde()
     for usr in usuario:
-        print("{} - {} - {}".format(usr[0],usr[1],usr[2]))
+        print("\033[1;32m"+"{} - {} - {}".format(usr[0],usr[1],usr[2])+"\033[m")
         total+=1
     if total == 0:
-        print("Não foram localizados registros! ")
+        print("\033[1;33m"+"Não foram localizados registros!"+"\033[m")
+    tracejado_verde()
 
 def alterar_cadastro(conexao):
     num = str(input("Insira o ID da pessoa a ser localizada: "))
     new_Name = str(input("Insira o novo nome para substituir: "))
     cursor = conexao.cursor()
 
-    sql = "UPDATE usuario SET nome = '"+new_Name+"' WHERE rowid='"+num+"';"
+    sql = "UPDATE usuario SET nome = '"+new_Name+"' WHERE rowid='"+num+"'; "
 
     cursor.execute(sql)
     conexao.commit()
 
+def excluir_cadastro(conexao):
+    num = str(input("Insira o ID da pessoa a ser excluida: "))
+    cursor = conexao.cursor()
+
+    sql = "DELETE FROM usuario WHERE rowid ='"+num+"'; "
+
+    cursor.execute(sql)
+    conexao.commit()
 
 conexao = sqlite3.connect("aula28.sqlite")
 
 option = 10
 while option != 0:
-    print('''\033[1;30;47m
------------------Menu---------------
-1 - criar BD:
-2 - Inserir novo cadastro
-3 - Listar cadastros
-4 - localizar um cadastro
-5 - alterar um cadastro
-6 - excluir um cadastro
-7 - Excluir tabela
-0 - sair
-------------------------------\033[m''')
+    print('''\033[1;36m
+-----------------Menu--------------+
+1 - criar BD:                      |
+2 - Inserir novo cadastro          |
+3 - Listar cadastros               |
+4 - localizar um cadastro          |
+5 - alterar um cadastro            |
+6 - excluir um cadastro            |
+0 - sair                           |
+-----------------------------------+\033[m''')
     option = int(input("Insira uma opção: "))
     if option == 1:
         criar_tabela_usuario(conexao)
@@ -110,5 +119,5 @@ while option != 0:
         localizar_cadastro(conexao)
     elif option == 5:
         alterar_cadastro(conexao)
-    elif option == 7:
-        excluir_tabela_usuario(conexao)
+    elif option == 6:
+        excluir_cadastro(conexao)
