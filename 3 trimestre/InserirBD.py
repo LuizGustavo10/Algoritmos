@@ -19,17 +19,10 @@ def criar_tabela_usuario(conexao):
     '''
     cursor.execute(sql)
     conexao.commit()
-#
-# def excluir_tabela_usuario(conexao):
-    # sql = '''DROP TABLE usuario'''
 
 
-def inserir_usuario(conexao):
+def inserir_usuario(conexao, nome, login, senha):
     cursor = conexao.cursor()
-
-    nome = input("Insira seu Nome: ")
-    login = input("Insira seu Login: ")
-    senha = input("Insira sua Senha: ")
 
     sql = '''
     INSERT INTO usuario VALUES(
@@ -48,7 +41,7 @@ def listar_usuario(conexao):
     sql = "SELECT rowid, * FROM usuario;"
     cursor.execute(sql)
 
-    usuarios = cursor.fetchall()
+    usuarios = cursor.fetchall() #vetor dentro de vetor
 
     tracejado_verde()
     print("\033[1;32m"+"--------lista de usuarios-----------"+"\033[m")
@@ -58,41 +51,40 @@ def listar_usuario(conexao):
         print("\033[1;32m"+" {} - {} - {} ".format(usr[0],usr[1],usr[2])+"\033[m")
     tracejado_verde()
 
-def localizar_cadastro(conexao):
+
+def localizar_cadastro(conexao,name):
     total = 0
-    name = str(input("Insira o nome a ser localizado:"))
+
     cursor = conexao.cursor()
 
-    sql = "SELECT rowid, * FROM usuario WHERE nome = '"+name+"';"
+    sql = "SELECT rowid, * FROM usuario WHERE nome LIKE '{}';".format(name)
     cursor.execute(sql)
 
-    usuario = cursor.fetchall()
+    usuario = cursor.fetchall()#vetor dentro de vetor, matrix
     tracejado_verde()
     for usr in usuario:
         print("\033[1;32m"+"{} - {} - {}".format(usr[0],usr[1],usr[2])+"\033[m")
         total+=1
+
     if total == 0:
         print("\033[1;33m"+"Não foram localizados registros!"+"\033[m")
     tracejado_verde()
 
-def alterar_cadastro(conexao):
-    num = str(input("Insira o ID da pessoa a ser localizada: "))
-    new_Name = str(input("Insira o novo nome para substituir: "))
+def alterar_cadastro(conexao, num_id, new_name, new_login, new_senha):
     cursor = conexao.cursor()
 
-    sql = "UPDATE usuario SET nome = '"+new_Name+"' WHERE rowid='"+num+"'; "
+    sql = "UPDATE usuario SET nome = '{}', login = '{}', senha = '{}' WHERE rowid = {};".format(new_name, new_login, new_senha, num_id)
 
     cursor.execute(sql)
     conexao.commit()
 
-def excluir_cadastro(conexao):
-    num = str(input("Insira o ID da pessoa a ser excluida: "))
+def excluir_cadastro(conexao, num_id):
     cursor = conexao.cursor()
 
-    sql = "DELETE FROM usuario WHERE rowid ='"+num+"'; "
-
+    sql = "DELETE FROM usuario WHERE rowid = {}; ".format(num_id)
     cursor.execute(sql)
     conexao.commit()
+#============================================================================
 
 conexao = sqlite3.connect("aula28.sqlite")
 
@@ -109,15 +101,36 @@ while option != 0:
 0 - sair                           |
 -----------------------------------+\033[m''')
     option = int(input("Insira uma opção: "))
+
     if option == 1:
         criar_tabela_usuario(conexao)
+
     elif option == 2:
-        inserir_usuario(conexao)
+        nome = input("Insira seu Nome: ")
+        login = input("Insira seu Login: ")
+        senha = input("Insira sua Senha: ")
+        inserir_usuario(conexao, nome, login, senha)
+
     elif option == 3:
         listar_usuario(conexao)
+
     elif option == 4:
-        localizar_cadastro(conexao)
+        name = str(input("Insira o nome a ser localizado:"))
+        localizar_cadastro(conexao,name)
+
     elif option == 5:
-        alterar_cadastro(conexao)
+        num_id = input("Insira o id da pessoa a ser alterada")
+        new_name = str(input("Insira o novo nome para substituir: "))
+        new_login = str(input("Insira o novo login para substituir: "))
+        new_senha = str(input("Insira a nova senha para substituir: "))
+        alterar_cadastro(conexao, num_id, new_name, new_login, new_senha)
+
     elif option == 6:
-        excluir_cadastro(conexao)
+        num = str(input("Insira o ID da pessoa a ser excluida: "))
+        excluir_cadastro(conexao, num)
+
+    else:
+        print("opção Inválida!!!")
+
+#MD5-------->HASH
+#SHA!------->HASH
