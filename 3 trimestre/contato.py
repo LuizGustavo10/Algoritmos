@@ -42,6 +42,29 @@ def listar_contato(conexao):
         print("\033[1;32m"+" {} - {} - {} - {} ".format(usr[0],usr[1],usr[2], usr[3])+"\033[m")
     tracejado_verde()
 
+def localizar_cadastro(conexao,name):
+    total = 0
+
+    cursor = conexao.cursor()
+
+    sql = "SELECT rowid, * FROM contato WHERE nome LIKE '{}';".format(name)
+    cursor.execute(sql)
+
+    contatos = cursor.fetchall()#vetor dentro de vetor, matrix
+    tracejado_verde()
+    for usr in contatos:
+        print("\033[1;32m"+"{} - {} - {} - {}".format(usr[0],usr[1],usr[2],usr[3])+"\033[m")
+        total+=1
+
+    if total == 0:
+        print("\033[1;33m"+"Não foram localizados registros!"+"\033[m")
+    tracejado_verde()
+
+def alterar_cadastro(conexao, new_name, new_fone, new_email, new_usuario):
+    cursor = conexao.cursor()
+    sql = "UPDATE usuario SET nome = '{}', fone = '{}', email = '{}', usuario = '{}' WHERE rowid = {};".format(new_name, new_login, new_senha, num_id)
+    cursor.execute(sql)
+    conexao.commit()
 
 #============================================
 def menu_contatos():
@@ -71,3 +94,17 @@ def menu_contatos():
             inserir_contato(conexao, nome, fone, email, usuario)
         elif option == 3:
             listar_contato(conexao)
+        elif option == 4:
+            name = str(input("Insira o nome a ser localizado:"))
+            localizar_cadastro(conexao,name)
+        elif option == 5:
+            executar = input("Tem certeza que deseja alterar? Dígite (S) para sim e (N) para não:").upper()
+            if executar == "S":
+                num_id = input("Insira o id da pessoa a ser alterada")
+                new_name = str(input("Insira o novo nome para substituir: "))
+                new_fone = str(input("Insira o novo telefone para substituir: "))
+                new_email = str(input("Insira o novo Email para substituir: "))
+                new_usuario = str(input("Insira o novo usuário para substituir: "))
+                alterar_cadastro(conexao, new_name, new_fone, new_email, new_usuario)
+            elif executar == "N":
+                print("operação cancelada...")
