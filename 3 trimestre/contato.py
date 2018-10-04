@@ -1,3 +1,16 @@
+# no Login, digitar login e senha, pegar login e senhar, buscar no
+# Banco de dados se existe um usuario Like login que passou AND Like
+# o que vc passou tbm,
+# metodo login, buscar, format para monter conexaoexute, fetchall, usuarios =
+#  cursor.fetchall, se o tamanho do vetor for 0, não existe. > que 0 tem algum cadastros
+# usuario só alterar, contato, id nunca muda,
+# pode ter um metodo chamado login, vai consultar no banco, vai passar o usuario e senha
+ #u = login
+#questão de niveis, nivel 0 estudante, 1 moderador, 2 professor...
+#fetchall u = cursor.fetchall
+# return u
+# principal = login(chama o usuario\)
+
 from outros import *
 
 def criar_tabela_contato(conexao):
@@ -29,7 +42,7 @@ def inserir_contato(conexao, nome, fone, email, usuario):
 def listar_contato(conexao):
     cursor = conexao.cursor()
 
-    sql = "SELECT rowid, * FROM contato;"
+    sql = "SELECT rowid, * FROM contato;" #rowid é cada linha
     cursor.execute(sql)
 
     contatos = cursor.fetchall() #vetor dentro de vetor
@@ -38,7 +51,7 @@ def listar_contato(conexao):
     print("\033[1;32m"+"--------lista de usuarios-----------"+"\033[m")
     tracejado_verde()
 
-    for usr in contatos:
+    for usr in contatos: #matriz, lista dentro de lista
         print("\033[1;32m"+" {} - {} - {} - {} ".format(usr[0],usr[1],usr[2], usr[3])+"\033[m")
     tracejado_verde()
 
@@ -47,7 +60,7 @@ def localizar_cadastro(conexao,name):
 
     cursor = conexao.cursor()
 
-    sql = "SELECT rowid, * FROM contato WHERE nome LIKE '{}';".format(name)
+    sql = "SELECT rowid, * FROM contato WHERE nome LIKE '{}';".format(name) #use LIKE e não =
     cursor.execute(sql)
 
     contatos = cursor.fetchall()#vetor dentro de vetor, matrix
