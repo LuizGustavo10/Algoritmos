@@ -3,6 +3,9 @@ import os #funções do S.O
 import sqlite3 # Importa a biblioteca sqlite
 import sys
 
+conexao = sqlite3.connect("aula28.sqlite")
+
+
 # CORES
 verde = '\033[01;32m'
 vermelho = '\033[01;31m'

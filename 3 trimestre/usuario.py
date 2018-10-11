@@ -1,10 +1,12 @@
-#angela.marques@ifpr.edu.br
+ #angela.marques@ifpr.edu.br
 #fazer um menu para:
 #reoganizar o código, para que fique certinho como em um menu
 #listar, inserir, atualizar, exluir, localizar, where...
 # para vizualisar: http://inloop.github.io/sqlite-viewer/
 #contatos, chave primaria > chave estrangeira, cadastro de contato, tabela comtato/pessoa essa pessoa tem q ter nome e fone residencial, menu pra contato, menu para usuario
 from outros import *
+
+def fazer_login():
 
 def criar_tabela_usuario(conexao):
     cursor = conexao.cursor()
