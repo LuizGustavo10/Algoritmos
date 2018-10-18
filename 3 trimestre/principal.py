@@ -1,5 +1,4 @@
 #coesão/complemento = muito importante
-
 from usuario import *
 from outros import *
 from contato import *

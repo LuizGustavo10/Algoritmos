@@ -6,7 +6,6 @@
 #contatos, chave primaria > chave estrangeira, cadastro de contato, tabela comtato/pessoa essa pessoa tem q ter nome e fone residencial, menu pra contato, menu para usuario
 from outros import *
 
-def fazer_login():
 
 def criar_tabela_usuario(conexao):
     cursor = conexao.cursor()
