@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tela de Venda - ERP</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Tela de Venda</h1>
+    <form>
+      <div class="form-group">
+        <label for="cliente">Cliente:</label>
+        <input type="text" class="form-control" id="cliente" placeholder="Nome do cliente">
+      </div>
+      <div class="form-group">
+        <label for="produto">Produto:</label>
+        <input type="text" class="form-control" id="produto" placeholder="Nome do produto">
+      </div>
+      <div class="form-group">
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" class="form-control" id="quantidade" placeholder="Quantidade">
+      </div>
+      <button type="button" class="btn btn-primary" id="adicionarItem">Adicionar Item</button>
+    </form>
+
+    <div class="mt-4">
+      <h2>Itens da Venda</h2>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Produto</th>
+            <th>Quantidade</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="itensVenda">
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      $("#adicionarItem").click(function() {
+        var produto = $("#produto").val();
+        var quantidade = $("#quantidade").val();
+
+        if (produto && quantidade) {
+          var itemHtml = "<tr>" +
+                          "<td>" + produto + "</td>" +
+                          "<td>" + quantidade + "</td>" +
+                          "<td><button type='button' class='btn btn-danger btn-remover'>Remover</button></td>" +
+                         "</tr>";
+
+          $("#itensVenda").append(itemHtml);
+          $("#produto").val("");
+          $("#quantidade").val("");
+        }
+      });
+
+      $("#itensVenda").on("click", ".btn-remover", function() {
+        $(this).closest("tr").remove();
+      });
+    });
+  </script>
+</body>
+</html>
